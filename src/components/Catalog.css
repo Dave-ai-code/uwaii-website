@@ -1,0 +1,134 @@
+.catalog {
+  padding: 80px 0 100px;
+}
+
+/* Filter bar */
+.catalog__filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.catalog__search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.catalog__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.catalog__search {
+  width: 100%;
+  background: var(--navy-card);
+  border: 1.5px solid var(--navy-border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 11px 40px 11px 40px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  transition: border-color var(--transition);
+}
+.catalog__search:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+.catalog__search::placeholder { color: var(--text-muted); }
+
+.catalog__search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+.catalog__search-clear:hover { color: var(--text); }
+
+.catalog__sort {
+  width: auto;
+  min-width: 180px;
+  padding: 11px 40px 11px 14px;
+  font-size: 14px;
+  background: var(--navy-card);
+}
+
+/* LOB pills */
+.catalog__lob-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.catalog__lob-pill {
+  background: var(--navy-card);
+  border: 1.5px solid var(--navy-border);
+  color: var(--text-secondary);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.catalog__lob-pill:hover {
+  border-color: var(--blue);
+  color: var(--text);
+}
+.catalog__lob-pill--active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+/* Results count */
+.catalog__results-count {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+.catalog__results-count strong { color: var(--text-secondary); }
+.catalog__results-count em { color: var(--cyan); font-style: normal; font-weight: 600; }
+
+/* Grid */
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Empty state */
+.catalog__empty {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.catalog__empty-icon { font-size: 48px; }
+.catalog__empty p { font-size: 16px; }
+
+@media (max-width: 1024px) {
+  .catalog__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .catalog__grid { grid-template-columns: 1fr; }
+  .catalog__sort { width: 100%; }
+  .catalog__filters { flex-direction: column; align-items: stretch; }
+}
